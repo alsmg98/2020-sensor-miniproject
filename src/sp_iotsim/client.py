@@ -84,6 +84,7 @@ file = open("dat.txt", "a")
     dat[]
     for i in 
         dat.append(i)
+        file.write("dat" + "\n")
         print(dat) 
 file.close()
 >>>>>>> 13961e8... Update client.py
