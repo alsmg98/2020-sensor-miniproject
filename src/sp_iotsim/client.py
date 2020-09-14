@@ -53,6 +53,7 @@ async def main(port: int, addr: str, max_packets: int, log_file: Path = None):
                 pass
                 # print(f"{i} total messages received")
             print(data)
+<<<<<<< HEAD
 
 
 def cli():
@@ -76,3 +77,13 @@ def cli():
 
 if __name__ == "__main__":
     cli()
+=======
+            
+""" Open dat.txt file add data line by line to file then close """ 
+file = open("dat.txt", "a")
+    dat[]
+    for i in 
+        dat.append(i)
+        print(dat) 
+file.close()
+>>>>>>> 13961e8... Update client.py
