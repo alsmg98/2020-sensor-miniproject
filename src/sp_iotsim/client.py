@@ -47,10 +47,12 @@ async def main(port: int, addr: str, max_packets: int, log_file: Path = None):
         if log_file:
             log_file = Path(log_file).expanduser()
             raise NotImplementedError("The code to open the file should be here.")
-
+        f = open("dat.txt", "w")
         for _ in range(max_packets):
             data = await websocket.recv()
             print(data)
+            f.write("dat.txt")
+        f.close()
 
 
 def cli():
