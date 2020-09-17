@@ -18,6 +18,8 @@ import numpy as np
 
 from sp_iotsim.fileio import load_data
 
+data = load_data("file")
+
 temp = [] 
 occu = []
 
