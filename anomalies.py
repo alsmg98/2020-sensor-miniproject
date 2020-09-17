@@ -11,7 +11,7 @@ import numpy as np
 from sp_iotsim.fileio import load_data
 
 
-i = (temp > 15) & (temp < 32)
+i = (temp > 19) & (temp < 25)
 filtered_temp = temp[i]
 
 
