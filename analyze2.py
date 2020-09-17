@@ -17,14 +17,14 @@ import typing as T
 import matplotlib.pyplot as plt
 import numpy as np
 
-filer = open('data.txt')
+filer = open('dat.txt')
 def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
 
     temperature = {}
     occupancy = {}
     co2 = {}
 
-    with open('data.txt', "r") as f:
+    with open('dat.txt', "r") as f:
         for line in f:
             r = json.loads(line)
             room = list(r.keys())[0]
@@ -51,7 +51,7 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
 
 if __name__ == "__main__":
     data = load_data('data.txt')
-###
+
     for k in data:
         if k == 'temperature':
             print('')
@@ -64,16 +64,16 @@ if __name__ == "__main__":
             print('Occupancy Median: ' + str(data[k]['office'].median()))
             print('Occupancy Variance: ' + str(data[k]['office'].var()))
             print('')
-###
+
             """
-              # data[k].plot()
+      # data[k].plot()
         time = data[k].index
         data[k].hist()
         plt.figure()
         plt.hist(np.diff(time.values).astype(np.int64) // 1000000000)
         plt.xlabel("Time (seconds)")
             """
-###
+
         plt.figure()
         data[k]['office'].plot.density()
         plt.title('Probability Density Functions for ' + k)
@@ -83,7 +83,7 @@ if __name__ == "__main__":
             plt.xlabel('No. of People')
         elif k == 'co2':
             plt.xlabel('co2 level')
-###
+
     time = data['temperature'].index
     time_series = pandas.Series([t.total_seconds() for t in (time[1:] - time[:-1])])
     print('')
@@ -96,6 +96,6 @@ if __name__ == "__main__":
     time_series.plot.density()
     plt.title('Probability Density Function For Time Interval')
     plt.xlabel('Time (seconds)')
-###
+
 
     plt.show()
