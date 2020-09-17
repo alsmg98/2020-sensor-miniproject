@@ -18,9 +18,6 @@ import numpy as np
 
 from sp_iotsim.fileio import load_data
 
-file = Path(P.file).expanduser()
-
-data = load_data(file)
 temp = [] 
 occu = []
 
@@ -40,6 +37,11 @@ occuMedian = tempDataFrame.median()
 print("Temperature Median:", occuMedian)
 occuVariance = occuDataFrame.var()
 print("Temperature Variance:", occuVariance)
+
+if __name__ == "__main__":
+    data = load_data("file")
+    
+    plt.show()
 
 breakpoint()
 
