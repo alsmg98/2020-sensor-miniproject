@@ -13,6 +13,8 @@ from pathlib import Path
 import argparse
 import pandas
 import matplotlib.pyplot as plt
+from scipy.stats import gamma
+import numpy as np
 
 from sp_iotsim.fileio import load_data
 
@@ -23,7 +25,16 @@ def plot_time(time: pandas.Series):
 
     https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.rv_continuous.fit.html
     """
+    
+    
+    intervals = time.diff().dropna().dt.total_seconds()
+    Nbin = 100
 
+    Fa, Floc, Fscale = gamma.fit(intervals)
+
+    ti = np.arange(0.01, 5, 0.01)  # arbitrary time interval range to plot over
+    pd = gamma.pdf(ti, Fa, loc=Floc, scale=Fscale)  # fit
+    
     ax = plt.figure().gca()
     ax.hist(time.diff().dt.total_seconds(), bins=100)
     ax.set_xlabel("Elapsed Time (seconds)")
