@@ -21,8 +21,8 @@ from sp_iotsim.fileio import load_data
 file = Path(P.file).expanduser()
 
 data = load_data(file)
-temp [] 
-occu[]
+temp = [] 
+occu = []
 
 for i,k in temperature.itmes():
     temp.append(list(k.values())[0])
