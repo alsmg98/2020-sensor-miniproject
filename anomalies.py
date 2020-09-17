@@ -14,6 +14,8 @@ from sp_iotsim.fileio import load_data
 i = (temp > 19) & (temp < 25)
 filtered_temp = temp[i]
 
+temp.size
+
 
 
 
