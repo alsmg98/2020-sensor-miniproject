@@ -50,7 +50,7 @@ def load_data(file: Path) -> T.Dict[str, pandas.DataFrame]:
 
 
 if __name__ == "__main__":
-    data = load_data('data.txt')
+    data = load_data('dat.txt')
 
     for k in data:
         if k == 'temperature':
