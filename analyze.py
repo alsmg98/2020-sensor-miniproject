@@ -18,6 +18,30 @@ import numpy as np
 
 from sp_iotsim.fileio import load_data
 
+file = Path(P.file).expanduser()
+
+data = load_data(file)
+temp [] 
+occu[]
+
+for i,k in temperature.itmes():
+    temp.append(list(k.values())[0])
+tempDataFrame = pandas.DataFrame(temp)
+tempMedian = tempDataFrame.median()
+print("Temperature Median:", tempMedian)
+tempVariance = tempDataFrame.var()
+print("Temperature Variance:", tempVariance)
+
+
+for i,k in temperature.itmes():
+    occu.append(list(k.values())[0])
+occuDataFrame = pandas.DataFrame(occu)
+occuMedian = tempDataFrame.median()
+print("Temperature Median:", occuMedian)
+occuVariance = occuDataFrame.var()
+print("Temperature Variance:", occuVariance)
+
+breakpoint()
 
 def plot_time(time: pandas.Series):
     """
